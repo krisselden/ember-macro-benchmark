@@ -1,0 +1,27 @@
+{
+  "name": "ember-macro-benchmark",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "author": {
+    "name": "Kris Selden",
+    "email": "kris.selden@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url" : "https://github.com/krisselden/ember-macro-benchmark.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "bench": "tsc && node dist/index.js",
+    "serve": "tsc && node --expose-gc dist/server.js"
+  },
+  "dependencies": {
+    "@types/node": "^7.0.12",
+    "acorn": "^5.0.3",
+    "chrome-tracing": "^0.4.3",
+    "estree-walker": "^0.3.1",
+    "har-remix": "^1.1.0",
+    "typescript": "^2.2.2"
+  }
+}
