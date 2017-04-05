@@ -9,13 +9,12 @@ declare const gc: {
   (full: boolean): void
 };
 
-const HAR_FILE = "archives/www.emberaddons.com.har";
-const EMBER_DIST = "../ember.js/dist/ember.min.js";
+const config = JSON.parse(fs.readFileSync("config.json", "utf8"));
 
-startServer("control", HAR_FILE, 8880);
-startServer("experiment", HAR_FILE, 8881, (key, text) => {
+startServer("control", config.har, 8880);
+startServer("experiment", config.har, 8881, (key, text) => {
   if (/GET\/assets\/vendor-\w+\.js/.test(key)) {
-    return replaceEmber(text, EMBER_DIST);
+    return replaceEmber(text, config.ember);
   }
   return text;
 });
