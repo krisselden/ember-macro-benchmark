@@ -16,7 +16,7 @@ phases$phase = factor(phases$phase,
     labels=c('Load','Boot','Transition','Render','Paint'))
 phases$set = factor(phases$set,
   levels=c('control', 'experiment'),
-  labels=c('Control', 'Experiment'))
+  labels=c('2.12.0-beta3', '2.12.0'))
 library('ggplot2')
 
 png(file='results/gc.png')
@@ -34,6 +34,6 @@ png(file='results/phases.png', width=1024, height=768)
 ggplot(aes(y = ms, x = phase, color = set), data = phases) +
   facet_grid(type ~ ., scales='free_y') +
   geom_boxplot(outlier.size=0.5, outlier.shape=4) +
-  labs(title = "control vs experiment", color = "Set",
-    x = paste0("estimated shift: ", result$estimate, " confidence interval (0.95): ", result$conf.int[1], " ", result$conf.int[2], " p.value: ", result$p.value))
+  labs(title = "ember-addons.com 2.12.0-beta3 vs 2.12.0", color = "Set",
+    x = paste0("estimated shift is ", result$estimate, ", confidence interval from ", result$conf.int[1], " to ", result$conf.int[2], " for ", attr(result$conf.int, "conf.level"),", p.value: ", result$p.value))
 dev.off()
