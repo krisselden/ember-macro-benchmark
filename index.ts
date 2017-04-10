@@ -1,4 +1,5 @@
 import { InitialRenderBenchmark, Runner } from "chrome-tracing";
+import * as fs from "fs";
 let browserOpts = process.env.CHROME_BIN ? {
   type: "exact",
   executablePath: process.env.CHROME_BIN
@@ -6,30 +7,23 @@ let browserOpts = process.env.CHROME_BIN ? {
   type: "system"
 };
 
-let benchmarks = [
-  new InitialRenderBenchmark({
-    name: "experiment",
-    url: "http://localhost:8881/?perf.tracing",
-    markers: [
-      { start: "domLoading", label: "load" },
-      { start: "beforeVendor", label: "boot" },
-      { start: "willTransition", label: "transition" },
-      { start: "didTransition", label: "render" }
-    ],
-    browser: browserOpts
-  }),
-  new InitialRenderBenchmark({
-    name: "control",
-    url: "http://localhost:8880/?perf.tracing",
-    markers: [
-      { start: "domLoading", label: "load" },
-      { start: "beforeVendor", label: "boot" },
-      { start: "willTransition", label: "transition" },
-      { start: "didTransition", label: "render" }
-    ],
-    browser: browserOpts
-  })
-];
+const config: {
+  servers: Array<{ name: string, port: number }>;
+} = JSON.parse(fs.readFileSync("config.json", "utf8"));
+
+
+let benchmarks = config.servers.map(({ name, port }) => new InitialRenderBenchmark({
+  name,
+  url: `http://localhost:${port}/?perf.tracing`,
+  markers: [
+    { start: "domLoading", label: "load" },
+    { start: "beforeVendor", label: "boot" },
+    { start: "willTransition", label: "transition" },
+    { start: "didTransition", label: "render" }
+  ],
+  browser: browserOpts
+}));
+
 let runner = new Runner(benchmarks);
 runner.run(50).then((results) => {
   let samplesCSV = "set,ms,type\n";

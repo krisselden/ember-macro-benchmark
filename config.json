@@ -1,4 +1,20 @@
 {
   "har": "archives/www.emberaddons.com-2.12.0-beta3.har",
-  "ember": "embers/v2.12.0/ember.min.js"
+  "servers": [{
+    "name": "v2.11.1",
+    "port": 8879,
+    "ember": "embers/v2.11.1/ember.min.js"
+  },{
+    "name": "v2.12.0-beta1",
+    "port": 8880,
+    "ember": "embers/v2.12.0-beta1/ember.min.js"
+  },{
+    "name": "v2.12.0-beta2",
+    "port": 8881,
+    "ember": "embers/v2.12.0-beta2/ember.min.js"
+  },{
+    "name": "v2.12.0-beta3",
+    "port": 8882,
+    "ember": "embers/v2.12.0-beta3/ember.min.js"
+  }]
 }

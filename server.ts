@@ -10,18 +10,13 @@ declare const gc: {
 };
 
 const config = JSON.parse(fs.readFileSync("config.json", "utf8"));
-
-startServer("control", config.har, 8880, (key, text) => {
-  if (/GET\/assets\/vendor-\w+\.js/.test(key)) {
-    return replaceEmber(text, "embers/v2.12.0-beta3/ember.min.js");
-  }
-  return text;
-});
-startServer("experiment", config.har, 8881, (key, text) => {
-  if (/GET\/assets\/vendor-\w+\.js/.test(key)) {
-    return replaceEmber(text, "embers/v2.12.0/ember.min.js");
-  }
-  return text;
+config.servers.forEach(server => {
+  startServer(server.name, config.har, server.port, (key, text) => {
+    if (/GET\/assets\/vendor-\w+\.js/.test(key)) {
+      return replaceEmber(text, server.ember);
+    }
+    return text;
+  });
 });
 
 function replaceProtocolAndDomain(text: string, host: string) {
