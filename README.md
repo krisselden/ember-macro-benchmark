@@ -61,9 +61,23 @@ yarn run bench
 ```
 
 ### Generate the Report
+
+Now we need to update the `report.R` to indicate which of the results are the `control` and `experiment`.
+
+* Update the following line:
+
+```r
+experiment = phases[phases$set == '<enter experiment here>' & phases$phase == 'render' & phases$type == 'cumulative',]$ms
+control = phases[phases$set == '<enter control here>' & phases$phase == 'render' & phases$type == 'cumulative',]$ms
+```
+
+* Run the report:
+
 ```sh
 ./report.R
 ```
+
+* View the results:
 
 ```
 open results/*.png
