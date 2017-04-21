@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url" : "https://github.com/krisselden/ember-macro-benchmark.git"
+    "url": "https://github.com/krisselden/ember-macro-benchmark.git"
   },
   "scripts": {
     "build": "tsc",
@@ -19,7 +19,7 @@
   "dependencies": {
     "@types/node": "^7.0.12",
     "acorn": "^5.0.3",
-    "chrome-tracing": "^0.4.3",
+    "chrome-tracing": "^0.8.0",
     "estree-walker": "^0.3.1",
     "har-remix": "^1.1.0",
     "typescript": "^2.2.2"

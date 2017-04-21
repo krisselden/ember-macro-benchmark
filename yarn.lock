@@ -26,6 +26,10 @@ acorn@^5.0.3:
   version "5.0.3"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.0.3.tgz#c460df08491463f028ccb82eab3730bf01087b3d"
 
+array-binsearch@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/array-binsearch/-/array-binsearch-1.0.1.tgz#35586dca04ca9ab259c4c4708435acd1babb08ad"
+
 balanced-match@^0.4.1:
   version "0.4.2"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-0.4.2.tgz#cb3f3e3c732dc0f01ee70b403f302e61d7709838"
@@ -37,9 +41,9 @@ brace-expansion@^1.0.0:
     balanced-match "^0.4.1"
     concat-map "0.0.1"
 
-chrome-debugging-client@^0.2.5:
-  version "0.2.5"
-  resolved "https://registry.yarnpkg.com/chrome-debugging-client/-/chrome-debugging-client-0.2.5.tgz#b8e1a6c37283323b6ff5d60525f6ea1fc8899fbd"
+chrome-debugging-client@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/chrome-debugging-client/-/chrome-debugging-client-0.3.0.tgz#4e5f4bbe43a95072d19e1bc580fd2798112fcb4e"
   dependencies:
     "@types/node" "^7.0.5"
     "@types/rimraf" "^0.0.28"
@@ -49,11 +53,12 @@ chrome-debugging-client@^0.2.5:
     rimraf "^2.5.1"
     ws "^1.0.1"
 
-chrome-tracing@^0.4.3:
-  version "0.4.3"
-  resolved "https://registry.yarnpkg.com/chrome-tracing/-/chrome-tracing-0.4.3.tgz#871a777c88bcc49813abd6e4e47de9d758343f95"
+chrome-tracing@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/chrome-tracing/-/chrome-tracing-0.8.0.tgz#a48d6c84217af732044505a39ce3019ef88b7a09"
   dependencies:
-    chrome-debugging-client "^0.2.5"
+    array-binsearch "^1.0.1"
+    chrome-debugging-client "^0.3.0"
 
 concat-map@0.0.1:
   version "0.0.1"
@@ -66,10 +71,6 @@ estree-walker@^0.3.1:
 fs.realpath@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
-
-git-repo-info@^1.4.1:
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/git-repo-info/-/git-repo-info-1.4.1.tgz#2a072823254aaf62fcf0766007d7b6651bd41943"
 
 glob@^7.0.5:
   version "7.1.1"
