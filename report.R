@@ -2,8 +2,8 @@
 phases = read.csv('results/phases.csv')
 samples = read.csv('results/samples.csv')
 gc = read.csv('results/gc.csv')
-
-experiment = phases[phases$set == 'v2.12.0-beta1' & phases$phase == 'paint' & phases$type == 'cumulative',]$ms
+             phases[phases$set == 'v2.12.0-beta1' & phases$phase == 'paint' & phases$type == 'cumulative',]$ms
+experiment = phases[phases$set == 'v2.12.0-beta3' & phases$phase == 'paint' & phases$type == 'cumulative',]$ms
 control = phases[phases$set == 'v2.11.1' & phases$phase == 'paint' & phases$type == 'cumulative',]$ms
 
 result = wilcox.test(experiment, control, conf.int=TRUE)

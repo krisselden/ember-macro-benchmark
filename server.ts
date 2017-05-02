@@ -21,7 +21,8 @@ config.servers.forEach(server => {
 
 function replaceProtocolAndDomain(text: string, host: string) {
   return text.replace(/https:\/\//g, "http://")
-             .replace(/[a-z\.\-]+\.(?:emberaddons|amazonaws|gravatar|google-analytics)\.com\b/g, host);
+             .replace(/[a-zA-Z1-9\.\-]+\.(?:cloudfront|outdoorsy|mixpanel|crazyegg|wemark|googletagmanager|googleadservices|mxpnl|sentry|doubleclick|gstatic|bing|sentry|inspectlet|facebook|intercom|customer|segment|yimg|ravenjs|googleapis|google-analytics|bootstrapcdn|typography)\.(?:com|org|net|co|io)\b/g, host)
+             .replace(/(?:sentry|outdoorsy)\.(?:com|org|net|co|io)\b/g, host);
 }
 
 function key(method: string, url: url.Url) {
