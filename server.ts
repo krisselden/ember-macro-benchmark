@@ -2,6 +2,7 @@ import HARRemix, { HAR, ServerDelegate } from "har-remix";
 import * as url from "url";
 import * as http from "http";
 import * as fs from "fs";
+import * as path from "path";
 import { walk } from "estree-walker";
 import { parse } from "acorn";
 
@@ -12,9 +13,23 @@ declare const gc: {
 const config = JSON.parse(fs.readFileSync("config.json", "utf8"));
 config.servers.forEach(server => {
   startServer(server.name, config.har, server.port, (key, text) => {
-    if (/GET\/assets\/vendor-\w+\.js/.test(key)) {
-      return replaceEmber(text, server.ember);
+    if (server.dist) {
+      let matches = key.match(/GET\/(.+)(-\w+)(\.js)$/);
+
+      if (!matches) { console.log(key); return text; }
+
+      let [,assetName,,extension] = matches;
+      let localPath = path.join(server.dist, `${assetName}${extension}`);
+
+      if (fs.existsSync(localPath)) {
+        return fs.readFileSync(localPath, { encoding: 'utf-8' });
+      }
+    } else if (server.ember) {
+      if (/GET\/assets\/vendor-\w+\.js/.test(key)) {
+        return replaceEmber(text, server.ember);
+      }
     }
+
     return text;
   });
 });
