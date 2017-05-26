@@ -47,6 +47,7 @@ Edit the `config.json`
 
 * har: the emberaddons.com HAR file, the example is a recording of emberaddons.com built with Ember 2.13.0-beta.1
 * ember: path to an ember dist to splice into the vendor.js, the example results were tested against Ember commit 2c45a3b.
+* dist: path to full emberaddons.com build. use this when testing ember versions that require wire format changes.
 
 Caveat: the templates are in the recorded app, you can only test with an Ember with compatible template wire-format as the recording.
 
