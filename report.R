@@ -3,8 +3,11 @@ phases = read.csv('results/phases.csv')
 samples = read.csv('results/samples.csv')
 gc = read.csv('results/gc.csv')
 
-experiment = phases[phases$set == 'v2.12.0-beta3' & phases$phase == 'render' & phases$type == 'cumulative',]$ms
-control = phases[phases$set == 'v2.11.1' & phases$phase == 'render' & phases$type == 'cumulative',]$ms
+controlName = 'v2-15-03b64d'
+experimentName = 'glimmer-0-24'
+
+experiment = phases[phases$set == experimentName & phases$phase == 'render' & phases$type == 'cumulative',]$ms
+control = phases[phases$set == controlName & phases$phase == 'render' & phases$type == 'cumulative',]$ms
 
 result = wilcox.test(experiment, control, conf.int=TRUE)
 
@@ -15,7 +18,7 @@ phases$phase = factor(phases$phase,
     levels=c('load','boot','transition','render'),
     labels=c('Load','Boot','Transition','Render'))
 phases$set = factor(phases$set,
-  levels=c('v2.11.1', 'v2.12.0-beta3'))
+  levels=c(controlName, experimentName))
 library('ggplot2')
 
 gc$type = factor(gc$type, levels=c('before', 'after'))
@@ -36,6 +39,6 @@ png(file='results/phases.png', width=1024, height=768)
 ggplot(aes(y = ms, x = phase, color = set), data = phases) +
   facet_grid(type ~ ., scales='free_y') +
   geom_boxplot(outlier.size=0.5, outlier.shape=4) +
-  labs(title = "ember-addons.com v2.11.1 vs 2.12.0-beta3 chrome 59", color = "Set",
+  labs(title = paste(controlName, "vs", experimentName, sep=" "), color = "Set",
     x = paste0("estimated shift is ", result$estimate, ", confidence interval from ", result$conf.int[1], " to ", result$conf.int[2], " for ", attr(result$conf.int, "conf.level"),", p.value: ", result$p.value))
 dev.off()
