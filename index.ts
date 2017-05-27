@@ -4,7 +4,7 @@ let browserOpts = process.env.CHROME_BIN ? {
   type: "exact",
   executablePath: process.env.CHROME_BIN
 } : {
-  type: "canary"
+  type: "system"
 };
 
 const config: {
