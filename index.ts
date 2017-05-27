@@ -24,7 +24,7 @@ let benchmarks = config.servers.map(({ name, port }) => new InitialRenderBenchma
 }));
 
 let runner = new Runner(benchmarks);
-runner.run(15).then((results) => {
+runner.run(50).then((results) => {
   let samplesCSV = "set,ms,type\n";
   let gcCSV = "set,heap,type\n";
   results.forEach(result => {
