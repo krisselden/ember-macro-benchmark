@@ -83,3 +83,14 @@ control = phases[phases$set == '<enter control here>' & phases$phase == 'render'
 ```
 open results/*.png
 ```
+
+Note be sure to install:
+
+R itself:
+```
+brew tap homebrew/science
+brew install r
+```
+
+the ggplot2 package for r:
+* `ggplot2` via `install.packages('ggplot2')`
