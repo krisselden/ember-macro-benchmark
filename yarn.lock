@@ -41,9 +41,9 @@ brace-expansion@^1.0.0:
     balanced-match "^0.4.1"
     concat-map "0.0.1"
 
-chrome-debugging-client@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/chrome-debugging-client/-/chrome-debugging-client-0.3.0.tgz#4e5f4bbe43a95072d19e1bc580fd2798112fcb4e"
+chrome-debugging-client@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/chrome-debugging-client/-/chrome-debugging-client-0.4.1.tgz#370ee8f439b880ba985e5c43ffd951807df1f319"
   dependencies:
     "@types/node" "^7.0.5"
     "@types/rimraf" "^0.0.28"
@@ -53,12 +53,12 @@ chrome-debugging-client@^0.3.0:
     rimraf "^2.5.1"
     ws "^1.0.1"
 
-chrome-tracing@^0.8.0:
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/chrome-tracing/-/chrome-tracing-0.8.0.tgz#a48d6c84217af732044505a39ce3019ef88b7a09"
+chrome-tracing@0.10.0:
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/chrome-tracing/-/chrome-tracing-0.10.0.tgz#de7dbe639965e820a8949b686cffd30bb93ed442"
   dependencies:
     array-binsearch "^1.0.1"
-    chrome-debugging-client "^0.3.0"
+    chrome-debugging-client "^0.4.1"
 
 concat-map@0.0.1:
   version "0.0.1"
