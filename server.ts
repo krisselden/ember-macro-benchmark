@@ -14,15 +14,31 @@ const config = JSON.parse(fs.readFileSync("config.json", "utf8"));
 config.servers.forEach(server => {
   startServer(server.name, config.har, server.port, (key, text) => {
     if (server.dist) {
-      let matches = key.match(/GET\/(.+)(-\w+)(\.js)$/);
+      let assetName, extension;
 
-      if (!matches) { console.log(key); return text; }
+      let fingerprinted = typeof server.fingerprinted === 'undefined' || server.fingerprinted === true
 
-      let [,assetName,,extension] = matches;
+      if (fingerprinted) {
+        let matches = key.match(/GET\/(.+)(-\w+)(\.js)$/);
+
+        if (!matches) { console.log(key); return text; }
+
+        [,assetName,,extension] = matches;
+      } else {
+        let matches = key.match(/GET\/(.+)(\.js)$/);
+        if (!matches) { console.log('No Match: ', key); return text; }
+
+        [,assetName,extension] = matches;
+      }
+
       let localPath = path.join(server.dist, `${assetName}${extension}`);
 
       if (fs.existsSync(localPath)) {
+        console.log('Looked up on disk: ', localPath);
         return fs.readFileSync(localPath, { encoding: 'utf-8' });
+      } else {
+        console.log('Failed to load: ', localPath, '\n');
+        console.log('Falling through')
       }
     } else if (server.ember) {
       if (/GET\/assets\/vendor-\w+\.js/.test(key)) {
