@@ -52,6 +52,10 @@ Edit the `config.json`
 * dist: path to full emberaddons.com build. Use this when testing ember
   versions that require wire format changes. Note that you *must* use an
   unfingerprinted production build.
+  * If the `dist` property is set you may also set `fingerprinted` to false to
+    ensure that assets are correctly served when you have opted out of
+    fingerprinting.  If `fingerprinted` is undefined it will assume assets are
+    fingerprinted.
 
 Caveat: the templates are in the recorded app, you can only test with an Ember with compatible template wire-format as the recording.
 
