@@ -83,3 +83,20 @@ control = phases[phases$set == '<enter control here>' & phases$phase == 'render'
 ```
 open results/*.png
 ```
+
+### Additional Information
+
+#### Generate a HAR file
+
+To generate a HAR file download and install [Firefox](https://www.mozilla.org) We'll use Firefox to generate the HAR file to workaround a bug in persistent network request logging.
+
+Once you have Firefox install:
+
+* open up the devtools and go to the settings and enable the "Enable persistent logs" setting.  This will ensure that when your application navigates away to `about:blank` the network trafic can still be written as HAR.
+* Read the [Basic Usage](https://github.com/krisselden/chrome-tracing#basic-usage) from krisselden/chrome-tracing to ensure that your application will know to `document.location.href='about:blank';` after paint.  And ensure that your application is setup correctly.
+* Start your server.
+* Clear the network pane from the Firefox devtools by clicking the trash icon to the left.
+* Navigate to the page you'd like to bench
+* Wait until your application navigates to `about:blank`
+* In Firefox's network panel right-click anywhere inside the "File" column
+* Select "Save All As HAR"
