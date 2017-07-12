@@ -87,3 +87,57 @@ control = phases[phases$set == '<enter control here>' & phases$phase == 'render'
 ```
 open results/*.png
 ```
+
+### Additional Information
+
+#### Setup marks in application
+
+- Instrument `performance.mark` for:
+  - domLoading (label ‘load’)
+  - beforeVendor (label ‘boot’)
+  - willTransition (label ‘transition’)
+  - didTransition (label ‘render’)
+
+Add the following to your `app/router.js`
+
+```js
+let Router = Ember.Router.extend({
+  willTransition() {
+    this._super(...arguments);
+    if (!get(this, 'fastboot.isFastBoot')) {
+      performance.mark('willTransition');
+    }
+  },
+
+  didTransition() {
+    this._super(...arguments);
+    if (!get(this, 'fastboot.isFastBoot')) {
+      performance.mark('didTransition');
+    }
+  }
+});
+```
+
+Place the following directly above vendor.js tag in your `app/index.html`
+
+```
+<script>performance.mark("beforeVendor");</script>
+```
+
+Then in your leafmost route of your application add the following measure to your `afterModel` hook:
+
+```js
+export function renderEnd() {
+  requestAnimationFrame(() => {
+    performance.mark('beforePaint');
+
+    requestAnimationFrame(() => {
+      performance.mark('afterPaint');
+
+      if (location.search === '?perf.tracing')) {
+        document.location.href = 'about:blank';
+      }
+    });
+  });
+}
+```
