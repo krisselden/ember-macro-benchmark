@@ -21,6 +21,8 @@
     "acorn": "^5.0.3",
     "chrome-tracing": "0.10.0",
     "estree-walker": "^0.3.1",
+    "execa": "^0.7.0",
+    "fs-extra": "^4.0.0",
     "har-remix": "^1.1.0",
     "typescript": "^2.2.2"
   }

@@ -73,19 +73,6 @@ yarn run bench
 
 Now we need to update the `report.R` to indicate which of the results are the `control` and `experiment`.
 
-* Update the following line:
-
-```r
- controlName = 'controlName'
- experimentName = 'experimentName'
-```
-
-* Run the report:
-
-```sh
-./report.R
-```
-
 * View the results:
 
 ```
