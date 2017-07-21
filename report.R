@@ -3,8 +3,10 @@ phases = read.csv('results/phases.csv')
 samples = read.csv('results/samples.csv')
 gc = read.csv('results/gc.csv')
 
-controlName = 'v2-15-03b64d'
-experimentName = 'glimmer-0-24'
+args <- commandArgs(trailingOnly = TRUE)
+
+controlName = args[1]
+experimentName = args[2]
 
 experiment = phases[phases$set == experimentName & phases$phase == 'render' & phases$type == 'cumulative',]$ms
 control = phases[phases$set == controlName & phases$phase == 'render' & phases$type == 'cumulative',]$ms
