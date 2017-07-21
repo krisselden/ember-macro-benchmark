@@ -22,8 +22,11 @@ Run R
 R
 ```
 
-Then install ggplot2
+Then install R packages:
+
 ```R
+install.packages("jsonlite")
+install.packages("R6")
 install.packages("ggplot2")
 q()
 ```
@@ -71,23 +74,18 @@ yarn run bench
 
 ### Generate the Report
 
-Now we need to update the `report.R` to indicate which of the results are the `control` and `experiment`.
+To generate the report run:
 
-* Update the following line:
+`npm run plot`
 
-```r
- controlName = 'controlName'
- experimentName = 'experimentName'
-```
+Which will generate a PDF in the `results` folder with the reports from Chrome Tracing.  It contains several graphs and plots for. Here are a few resources to help you read them:
 
-* Run the report:
+* [Wilcoxon rank-sum test](https://en.wikipedia.org/wiki/Mann%E2%80%93Whitney_U_test)
+* [Null Hypothesis](https://en.wikipedia.org/wiki/Null_hypothesis)
 
-```sh
-./report.R
-```
 
-* View the results:
+If you'd like to see a smaller summary in your CLI you can run:
 
-```
-open results/*.png
-```
+`npm run report`
+
+Which will give you an abbreviated report.
