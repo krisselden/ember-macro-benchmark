@@ -91,3 +91,39 @@ Now we need to update the `report.R` to indicate which of the results are the `c
 ```
 open results/*.png
 ```
+
+### Additional Information
+
+#### Generate a HAR file:
+
+It isn't necessary to add the `?perf.tracing` query param to your recording.  Follow the steps below to generate a HAR file for use with EMB.
+
+##### Chrome instructions
+
+To generate a HAR file download and install [Chrome](https://www.google.com/chrome/)
+
+Once you have Chrome installed:
+
+* Open developer tools
+* Start your server
+* Clear any persistent network logs
+* Navigate to the page you'd like to bench
+* In the "Network" panel right-click inside the pane where the network requests are shown
+* Select "Save as HAR with Content"
+
+![](http://i.imgur.com/nyDUR8A.png)
+
+
+##### Firefox instructions
+
+To generate a HAR file download and install [Firefox](https://www.mozilla.org).
+
+Once you have Firefox installed:
+
+* Start your server.
+* Clear the network pane from the Firefox devtools by clicking the trash icon to the left.
+* Navigate to the page you'd like to bench
+* In Firefox's network panel right-click anywhere inside the "File" column
+* Select "Save All As HAR"
+
+![](http://i.imgur.com/4GMXHnF.png)
