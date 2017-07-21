@@ -76,8 +76,8 @@ Now we need to update the `report.R` to indicate which of the results are the `c
 * Update the following line:
 
 ```r
-experiment = phases[phases$set == '<enter experiment here>' & phases$phase == 'render' & phases$type == 'cumulative',]$ms
-control = phases[phases$set == '<enter control here>' & phases$phase == 'render' & phases$type == 'cumulative',]$ms
+ controlName = 'controlName'
+ experimentName = 'experimentName'
 ```
 
 * Run the report:
