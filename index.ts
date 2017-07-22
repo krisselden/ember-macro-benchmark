@@ -8,6 +8,7 @@ let browserOpts = process.env.CHROME_BIN ? {
 };
 
 const config: {
+  runCount: number,
   servers: Array<{ name: string, port: number }>;
 } = JSON.parse(fs.readFileSync("config.json", "utf8"));
 
@@ -25,7 +26,7 @@ let benchmarks = config.servers.map(({ name, port }) => new InitialRenderBenchma
 }));
 
 let runner = new Runner(benchmarks);
-runner.run(40).then((results) => {
+runner.run(config.runCount).then((results) => {
   fs.writeFileSync('results/results.json', JSON.stringify(results, null, 2));
 }).catch((err) => {
   console.error(err.stack);
