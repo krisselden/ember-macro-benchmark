@@ -76,7 +76,7 @@ yarn run bench
 
 To generate the report run:
 
-`npm run plot`
+`yarn run plot`
 
 Which will generate a PDF in the `results` folder with the reports from Chrome Tracing.  It contains several graphs and plots for. Here are a few resources to help you read them:
 
@@ -86,6 +86,6 @@ Which will generate a PDF in the `results` folder with the reports from Chrome T
 
 If you'd like to see a smaller summary in your CLI you can run:
 
-`npm run report`
+`yarn run report`
 
 Which will give you an abbreviated report.
