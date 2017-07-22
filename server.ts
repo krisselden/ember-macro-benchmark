@@ -41,7 +41,7 @@ config.servers.forEach(server => {
         console.log('Falling through')
       }
     } else if (server.ember) {
-      if (/GET\/assets\/vendor-\w+\.js/.test(key)) {
+      if (/GET\/assets\/vendor(-\w+)?\.js/.test(key)) {
         return replaceEmber(text, server.ember);
       }
     }
