@@ -59,6 +59,10 @@ Edit the `config.json`
     ensure that assets are correctly served when you have opted out of
     fingerprinting.  If `fingerprinted` is undefined it will assume assets are
     fingerprinted.
+* runCount: number of benchmarks to run
+* cpuThrottleRate: Throttling rate as a slowdown factor (1 is no throttle, 2 is 2x slowdown, etc).
+* networkCondition: Configurations for combinations of latency/downloadThroughput/uploadThroughput.  Presets are taken from [addyosmani/network-emulation-conditions](https://github.com/addyosmani/network-emulation-conditions)
+  * Available options: `GPRS`, `REGULAR_2G`, `GOOD_2G`, `REGULAR_3G`, `GOOD_3G`, `REGULAR_4G`, `DSL`, `WIFI`.
 
 Caveat: the templates are in the recorded app, you can only test with an Ember with compatible template wire-format as the recording.
 
