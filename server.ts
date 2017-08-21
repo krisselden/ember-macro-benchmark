@@ -15,7 +15,6 @@ config.servers.forEach(server => {
   startServer(server.name, config.har, server.port, (key, text) => {
     if (server.dist) {
       let assetName, extension;
-      let assetFingerprint = '';
 
       let fingerprinted = typeof server.fingerprinted === 'undefined' || server.fingerprinted === true
 
@@ -24,7 +23,7 @@ config.servers.forEach(server => {
 
         if (!matches) { console.log(key); return text; }
 
-        [,assetName,assetFingerprint,extension] = matches;
+        [,assetName,,extension] = matches;
       } else {
         let matches = key.match(/GET\/(.+)(\.js)$/);
         if (!matches) { console.log('No Match: ', key); return text; }
@@ -32,7 +31,7 @@ config.servers.forEach(server => {
         [,assetName,extension] = matches;
       }
 
-      let localPath = path.join(server.dist, `${assetName}${assetFingerprint}${extension}`);
+      let localPath = path.join(server.dist, `${assetName}${extension}`);
 
       if (fs.existsSync(localPath)) {
         console.log('Looked up on disk: ', localPath);
