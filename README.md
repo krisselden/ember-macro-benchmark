@@ -72,6 +72,8 @@ yarn run serve
 
 ### Run the Benchmark
 
+While the app is being served, run:
+
 ```sh
 yarn run bench
 ```
