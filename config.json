@@ -1,6 +1,7 @@
 {
   "har": "archives/www.emberaddons.com-2.16.2.har",
   "runCount": 40,
+  "cpuThrottleRate": 4,
   "servers": [{
     "name": "master-05b1ab4",
     "port": 8880,
