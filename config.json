@@ -1,13 +1,13 @@
 {
-  "har": "archives/www.emberaddons.com-2.12.0-beta3.har",
+  "har": "archives/www.emberaddons.com-2.16.2.har",
   "runCount": 40,
   "servers": [{
-    "name": "v2.11.1",
+    "name": "master-05b1ab4",
     "port": 8880,
-    "ember": "embers/v2.11.1/ember.min.js"
+    "ember": "embers/ember-master-05b1ab4.min.js"
   }, {
-    "name": "v2.12.0-beta3",
+    "name": "my-experiment-1afbf34",
     "port": 8881,
-    "ember": "embers/v2.12.0-beta3/ember.min.js"
+    "ember": "embers/ember-my-experiment-1afbf34.min.js"
   }]
 }
