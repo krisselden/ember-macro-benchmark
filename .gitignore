@@ -1,7 +1,10 @@
 /dist/
+/dists/
+/embers/
 /node_modules/
 /scratch/
 /results/
 .RData
 .Rhistory
 .DS_Store
+config.json

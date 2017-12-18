@@ -1,0 +1,14 @@
+{
+  "har": "archives/www.emberaddons.com-2.16.2.har",
+  "runCount": 40,
+  "cpuThrottleRate": 4,
+  "servers": [{
+    "name": "master-05b1ab4",
+    "port": 8880,
+    "ember": "embers/ember-master-05b1ab4.min.js"
+  }, {
+    "name": "my-experiment-1afbf34",
+    "port": 8881,
+    "ember": "embers/ember-my-experiment-1afbf34.min.js"
+  }]
+}
