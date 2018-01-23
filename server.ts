@@ -10,8 +10,7 @@ declare const gc: {
   (full: boolean): void
 };
 
-const DIST_FINGERPRINTED_REGEX = /^GET\/(.*?)-[0-9a-fA-Z]{31,32}(\..+)$/;
-const DIST_REGEX = /^GET\/(.+)(\..+)$/;
+const DIST_REGEX = /^GET\/(.+)(\.js)$/;
 const KEY_FINGERPRINT = /-[0-9a-fA-Z]{31,32}\./;
 
 const config = JSON.parse(fs.readFileSync("config.json", "utf8"));
@@ -22,23 +21,20 @@ config.servers.forEach(server => {
     }
 
     if (server.dist) {
-      let fingerprinted = typeof server.fingerprinted === 'undefined' || server.fingerprinted === true
-
-      let regex = fingerprinted ? DIST_FINGERPRINTED_REGEX : DIST_REGEX;
-
-      let matches = key.match(regex);
+      let matches = key.match(DIST_REGEX);
       if (!matches) {
         return text;
       }
       let asset = matches[1] + matches[2];
-
       let localPath = path.join(server.dist, asset);
+
+      console.log('');
       if (fs.existsSync(localPath)) {
         console.log('Looked up on disk: ', localPath);
         return fs.readFileSync(localPath, { encoding: 'utf-8' });
       } else {
-        console.log('Failed to load: ', localPath, '\n');
-        console.log('Falling through')
+        console.log('Failed to load: ', localPath);
+        console.log('Falling through');
       }
     } else if (server.ember) {
       if (/GET\/assets\/vendor(?:-[0-9a-fA-Z]{31,32})?\.js/.test(key)) {
