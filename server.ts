@@ -48,7 +48,7 @@ config.servers.forEach(server => {
 
 function replaceProtocolAndDomain(text: string, host: string) {
   return text.replace(/https:\/\//g, "http://")
-             .replace(/[a-z\.\-]+\.(?:emberaddons|amazonaws|gravatar|google-analytics)\.com\b/g, host);
+             .replace(/[a-z\.\-]+\.(?:emberaddons|amazonaws|gravatar|google-analytics|googleapis|trackjs)\.com\b/g, host);
 }
 
 function key(method: string, url: url.Url) {
