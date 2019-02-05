@@ -1,0 +1,17 @@
+{
+  "har": "archives/emberobserver.har",
+  "runCount": 10,
+  "cpuThrottleRate": 4,
+  "servers": [
+    {
+      "name": "ember-decorators-refactor",
+      "port": 8880,
+      "dist": "dists/decorators-refactor"
+    },
+    {
+      "name": "native-classes",
+      "port": 8881,
+      "dist": "dists/native-classes"
+    }
+  ]
+}
