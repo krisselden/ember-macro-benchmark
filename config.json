@@ -1,6 +1,6 @@
 {
   "har": "archives/emberobserver.har",
-  "runCount": 10,
+  "runCount": 60,
   "cpuThrottleRate": 4,
   "servers": [
     {
@@ -12,6 +12,11 @@
       "name": "native-classes",
       "port": 8881,
       "dist": "dists/native-classes"
+    },
+    {
+      "name": "native-classes-evergreen",
+      "port": 8882,
+      "dist": "dists/native-classes-evergreen"
     }
   ]
 }
