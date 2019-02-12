@@ -215,9 +215,12 @@ graceful-fs@^4.1.2, graceful-fs@^4.1.6:
   version "4.1.11"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.11.tgz#0e8bdfe4d1ddb8854d64e04ea7c00e2a026e5658"
 
-har-remix@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/har-remix/-/har-remix-1.1.0.tgz#4c9ebf3d335b166e1f76bc90861008d7ba482de1"
+har-remix@^2.0.0-beta.2:
+  version "2.0.0-beta.2"
+  resolved "https://registry.yarnpkg.com/har-remix/-/har-remix-2.0.0-beta.2.tgz#47389eeb295bf532b754243c941e24986e594d2d"
+  integrity sha512-jff+RxN9fpvsVJogimEniivKQash5KsTcWIxQK12en9qkhM0dwIc1KSXxnpU8DSLIcu8LkBthKTS6mRxFrxWaw==
+  dependencies:
+    mime-types "^2.1.20"
 
 hosted-git-info@^2.1.4:
   version "2.5.0"
@@ -306,6 +309,18 @@ mem@^1.1.0:
   resolved "https://registry.yarnpkg.com/mem/-/mem-1.1.0.tgz#5edd52b485ca1d900fe64895505399a0dfa45f76"
   dependencies:
     mimic-fn "^1.0.0"
+
+mime-db@~1.37.0:
+  version "1.37.0"
+  resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.37.0.tgz#0b6a0ce6fdbe9576e25f1f2d2fde8830dc0ad0d8"
+  integrity sha512-R3C4db6bgQhlIhPU48fUtdVmKnflq+hRdad7IyKhtFj06VPNVdk2RhiYL3UjQIlso8L+YxAtFkobT0VK+S/ybg==
+
+mime-types@^2.1.20:
+  version "2.1.21"
+  resolved "https://registry.yarnpkg.com/mime-types/-/mime-types-2.1.21.tgz#28995aa1ecb770742fe6ae7e58f9181c744b3f96"
+  integrity sha512-3iL6DbwpyLzjR3xHSFNFeb9Nz/M8WDkX33t1GFQnFOllWk8pOrh/LSrB5OXlnlW5P9LH73X6loW/eogc+F5lJg==
+  dependencies:
+    mime-db "~1.37.0"
 
 mimic-fn@^1.0.0:
   version "1.1.0"
