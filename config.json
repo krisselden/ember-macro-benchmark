@@ -17,6 +17,21 @@
       "name": "native-classes-evergreen",
       "port": 8882,
       "dist": "dists/native-classes-evergreen"
+    },
+    {
+      "name": "ember-decorators-refactor-unminified",
+      "port": 8883,
+      "dist": "dists/decorators-refactor"
+    },
+    {
+      "name": "native-classes-unminified",
+      "port": 8884,
+      "dist": "dists/native-classes"
+    },
+    {
+      "name": "native-classes-evergreen-unminified",
+      "port": 8885,
+      "dist": "dists/native-classes-evergreen"
     }
   ]
 }
