@@ -1,11 +1,9 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "target": "es2015",
+    "target": "es2018",
     "moduleResolution": "node",
     "outDir": "dist"
   },
-  "files": [
-    "index.ts", "server.ts"
-  ]
+  "files": ["index.ts", "server.ts"]
 }
